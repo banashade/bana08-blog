@@ -13,7 +13,9 @@ import axios from 'axios'
 export default {
   async asyncData({ params }) {
     const { data } = await axios.get(
-      `https://banashade08.microcms.io/api/v1/blog/${params.slug}`,
+      `https://banashade08.microcms.io/api/v1/blog/${params.slug}${
+      query.draftKey !== undefined ? `?draftKey=${query.draftKey}` : ''
+    }`,
       {
         headers: { 'X-API-KEY': '28fa12c1-cc1d-4bd0-af75-c142099c45e4' }
       }

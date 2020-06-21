@@ -66,5 +66,6 @@ export default {
       return pages
     }
   }
-
+  target: process.env.NODE_ENV === 'production' ? 'static' : 'server',
+  mode: process.env.NODE_ENV === 'production' ? 'universal' : 'spa'
 }
